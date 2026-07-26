@@ -5,8 +5,8 @@
 import { computed, ref, onMounted } from 'vue';
 
 const panelFaceHeight = ref(1000);
-const kickAngle = ref(0);
-const faceAngle = ref(0);
+const kickAngle = ref(30);
+const faceAngle = ref(20);
 
 const cut = computed(() => {
   return r.value * (1 - Math.cos(kickAngleRad.value)) / Math.sin(kickAngleRad.value);
@@ -27,11 +27,10 @@ onMounted(() => console.log('mounted'));
 
 <template>
   <v-app>
-    <v-main style="border: solid 1px green;">
+    <v-main>
       <v-container style="height: 100%;">
         <div class="container">
           <div class="panel">
-            <v-sheet>
               <v-list>
                 <v-list-item>
                   <v-label>Panel Face Height (mm)</v-label>
@@ -73,7 +72,6 @@ onMounted(() => console.log('mounted'));
                   ></v-number-input>
                 </v-list-item>
               </v-list>
-            </v-sheet>
           </div>
           <div class="panel number-panel">
             <h3>{{ cut }}</h3>
@@ -85,22 +83,34 @@ onMounted(() => console.log('mounted'));
 </template>
 
 <style scoped lang="scss">
+  // @use 'vuetify/settings' as settings;
+
   .container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    display: flex;
     height: 100%;
+
+
+    @media (min-width: 1024px) {
+      flex-direction: row;
+    }
   }
 
   .panel {
     flex: 1;
     border: solid 1px slateblue;
     min-width: fit-content;
-  }
-
-  .number-panel {
     align-content: center;
     width: 100%;
     text-align: center;
+  }
+
+  .number-panel {
     flex-grow: 10;
+  }
+
+  .v-list, .v-list-item {
+    background: transparent !important;
   }
 </style>
