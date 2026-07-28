@@ -6,8 +6,8 @@ import { computed, ref, onMounted, watch } from 'vue';
 import * as THREE from 'three';
 
 const panelFaceHeight = ref(1000);
-const kickAngle = ref(0);
-const faceAngle = ref(0);
+const kickAngle = ref(30);
+const faceAngle = ref(20);
 
 const cut = computed(() => {
   return r.value * (1 - Math.cos(kickAngleRad.value)) / Math.sin(kickAngleRad.value);
@@ -57,7 +57,7 @@ function initScene() {
   scene.add(panel2Group);
 
   camera.position.set(0, 3, 3);
-  camera.lookAt(0, 0, 0);
+  camera.lookAt(0, 0.5, 0);
 
   scene.add(new THREE.AmbientLight(0xffffff, 0.4));
   const dirLight = new THREE.DirectionalLight(0xffffff, 1);
