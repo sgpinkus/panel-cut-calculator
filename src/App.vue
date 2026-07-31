@@ -123,7 +123,7 @@ function toRad(x: number) {
                     variant="outlined"
                     density="compact"
                     :min="-90"
-                    :max="90"
+                    :max="180"
                     :step="1"
                   ></v-number-input>
                 </v-list-item>
