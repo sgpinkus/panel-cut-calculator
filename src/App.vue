@@ -12,6 +12,7 @@ const faceAngle = ref(20);
 const cut = computed(() => {
   return r.value * (1 - Math.cos(kickAngleRad.value)) / Math.sin(kickAngleRad.value);
 });
+const cut_rounded = computed(() => Math.round(10*cut.value)/10);
 const kickAngleRad = computed(() => {
   return 2 * Math.PI * (kickAngle.value / 360.);
 });
@@ -143,7 +144,7 @@ function toRad(x: number) {
               </v-list>
           </div>
           <div class="panel number-panel">
-            <h3>{{ cut }}</h3>
+            <h3>{{ cut_rounded }}mm</h3>
             <div class="canvas" ref="container">
               <canvas></canvas>
             </div>

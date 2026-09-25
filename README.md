@@ -1,4 +1,2 @@
-# TODO
+<a href=https://sgpinkus.github.io/panel-cut-calculator/><img src='./screenshot.png' /></a>
 
-  - Responsive layout. Sidebar on md and above, stack else wise.
-  - Three.js 3D rendering.
